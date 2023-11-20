@@ -91,6 +91,61 @@ console.log(_addition(10,20));
 
 
 
+let _name = "John";
+let _age = 30;
+
+// backticks `
+let _message = `Hello, my name is ${_name} and I am ${_age} years old.`;
+console.log(_message);
+
+
+function add(x = 0, y = 0){
+    return x + y;
+}
+
+function subtract(x,y){
+    return x - y;
+}
+
+function multipy(x,y){
+    return x * y;
+}
+
+function divide(x, y){
+    if(y === 0){
+        throw new Error("Cannot devide by zero!");
+    }
+    return x / y;
+}
+
+function calculate( num1, num2, operation){
+    return operation(num1, num2);
+}
+
+console.log(calculate(10, 7, subtract));
+
+
+try {
+    console.log(calculate(10, 0, divide));
+} catch(error){
+    console.log("Caught an error:",error.message);
+} finally {
+    console.log("finally block has been executed! :)")
+}
 
 
 
+// String & Date examples
+let text = "Hello, World!";
+console.log(text.length);
+console.log(text.toUpperCase());
+console.log(text.indexOf('World'));
+console.log(text.slice(0, 5));
+
+const currentDate = new Date();
+console.log(currentDate);
+console.log(currentDate.getFullYear());
+console.log(currentDate.getMonth());
+console.log(currentDate.getSeconds());
+
+console.log(currentDate.toLocaleDateString('sv-SE')); 
