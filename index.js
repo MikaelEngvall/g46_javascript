@@ -71,3 +71,26 @@ function addition(n1,n2){
 
 const result = addition(10,20); // 30
 console.log(result);
+
+function sum(...numbers) {
+    let total = 0;
+    for ( let number of numbers){
+        total +=number;
+    }
+    return total;
+}
+console.log(sum(1,2,3,4)); // 10
+
+// Arrow Function
+const _greet = (name) => console.log("Hello" , name , "! ;)");
+_greet("JS");
+
+
+const _addition = (n1,n2) => n1 + n2;
+console.log(_addition(10,20));
+
+
+
+
+
+
