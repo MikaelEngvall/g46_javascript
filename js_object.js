@@ -6,8 +6,13 @@ let person = {
     address: {
         city: "New York",
         country: "USA"
+    },
+    info() {
+        console.log(`My name is ${this.name} I am ${this.age} years old and live in ${this.address.city}`);
     }
 };
+person.info();
+
 
 console.log(person.name);
 console.log(person.address.city);
