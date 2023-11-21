@@ -1,54 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-
+  </head>
+  <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Logo</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>    
-            </ul>
-          </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapsibleNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
 
     <div class="container-fluid bg-danger text-white pt-5 pb-2">
-        <h1>My First Bootstrap Page</h1>
-        <p>This part is inside a .container class.</p>
+      <h1>My First Bootstrap Page</h1>
+      <p>This part is inside a .container class.</p>
     </div>
 
     <div class="container pt-2">
-        <script src="index.js"></script>
-        <div class="card">
-            <div class="card-header bg-dark text-white">Header</div>
-            <div class="card-body">
-                <button type="button" class="btn btn-outline-success" onclick="showTable()">Show Table</button>
-                <button type="button" class="btn btn-outline-danger" onclick="hideTable()">Hide Table</button>
+      <script src="index.js"></script>
+      <div class="card">
+        <div class="card-header bg-dark text-white">Header</div>
+        <div class="card-body">
+          <div class="container mb-5">
+            <h2>Registration Form</h2>
+            <form id="registrationForm">
+              <!-- First Name Input -->
+              <div class="form-group">
+                <label for="firstName">First Name: * </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstName"
+                  placeholder="Enter your first name"
+                  required
+                />
+                <div class="invalid-feedback">Please enetr your fist name.</div>
+              </div>
 
-                <section id="data-table">
-                    <div id="message"></div>
-                    
+              <!-- First Name Input -->
+              <div class="form-group">
+                <label for="lastName">Last Name: * </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  placeholder="Enter your last name"
+                  required
+                />
+                <div class="invalid-feedback">Please enetr your last name.</div>
+              </div>
 
-                    <!--table class="table table-striped">
+              <!-- First Name Input -->
+              <div class="form-group">
+                <label for="email">Email: * </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Enter your email"
+                  required
+                />
+                <div class="invalid-feedback">Please enetr your email.</div>
+              </div>
+              <!-- <button id="reg-btn" type="button" class="btn btn-primary" onclick="validateAndSubmit()">Click</button> -->
+              <button id="reg-btn" type="button" class="btn btn-primary">Click</button>
+              <button id="reset-btn" type="button" class="btn btn-danger" onclick="resetForm()">Reset</button>
+
+            </form>
+
+          </div>
+
+          <script>
+            document.getElementById('reg-btn')
+            .addEventListener('click', () => validateAndSubmit())
+
+            validateAndSubmit = () => {
+              const firstName = document.getElementById('firstName').value.trim();
+              const lastName = document.getElementById('lastName').value.trim();
+              const email = document.getElementById('email').value.trim();
+              console.log(firstName, lastName, email);
+
+              if(!firstName || !lastName || !email) {
+                // display validation error messages
+                if(!firstName) {
+                  document.getElementById('firstName').classList.add('is-invalid')
+                }
+                if(!lastName) {
+                  document.getElementById('lastName').classList.add('is-invalid')
+                }
+                if(!email) {
+                  document.getElementById('email').classList.add('is-invalid')
+                }
+
+                return;
+              }
+
+              // clear existing validation lasses
+              document.getElementById('firstName').classList.remove('is-invalid')
+              document.getElementById('lastName').classList.remove('is-invalid')
+              document.getElementById('email').classList.remove('is-invalid')
+
+              console.log("validateAndSubmit has beend executed!");
+              showTable();
+            }
+            
+            resetForm = () => {
+
+              document.getElementById('registrationForm').reset();
+
+              document.getElementById('firstName').classList.remove('is-invalid')
+              document.getElementById('lastName').classList.remove('is-invalid')
+              document.getElementById('email').classList.remove('is-invalid')
+
+
+            }
+          </script>
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            onclick="showTable()"
+          >
+            Show Table
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            onclick="hideTable()"
+          >
+            Hide Table
+          </button>
+
+          <section id="data-table">
+            <div id="message"></div>
+
+            <!--table class="table table-striped">
                         <thead>
                           <tr>
                             <th>Firstname</th>
@@ -75,13 +187,12 @@
                         </tbody>
                         
                       </table-->
-                </section>
-
-            </div>
-            <div class="card-footer bg-secondary text-white">Footer</div>
+          </section>
         </div>
-
+        <div class="card-footer bg-secondary text-white">Footer</div>
+      </div>
     </div>
 
-</body>
+    <footer class="container-fluid bg-dark text-white text-center pt-2 pb-2 mt-5">&copy; <strong class="text-danger">Lexicon</strong> Växjö 2023</footer>
+  </body>
 </html>
