@@ -10,10 +10,20 @@
    <div id="main">JS In HTML</div>
     <!--<script src="index.js"></script>  -->
 
+    <footer style="color: red;">Test Footer</footer>
    
     <script>
         console.log("Hello JS!");
         document.getElementById('main').innerHTML = "I love JS!";
+        const footerElement = document.getElementsByTagName('footer')[0];
+        footerElement.innerHTML = "<b>Footer</b>";
+        footerElement.style.color = "Green";
+
+        const para = document.createElement("p");
+        para.innerText= "This is a paragraph.";
+        document.getElementById('main').appendChild(para);
+        //document.body.appendChild(para);
+
     </script>
   
    
