@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>Exercise 4</h2>
+
+    <label for="1st">1st Number:</label>
+    <input type="text" id="1st" />
+    <p></p>
+
+    <label for="2nd">2nd Number:</label>
+    <input type="text" id="2nd" />
+    <p></p>
+
+    <button type="button" onclick="multiply()">Multiply</button>
+    <button type="button" onclick="divide()">Divide</button>
+
+    <p id="result"></p>
+
+    <script>
+      function multiply() {
+        let firstNumber = document.getElementById("1st").value;
+        let secondNumber = document.getElementById("2nd").value;
+
+        if (!isNaN(firstNumber) && !isNaN(secondNumber)) {
+          let multiplyResult = firstNumber * secondNumber;
+          document.getElementById("result").innerHTML =
+            "The result is: " + multiplyResult;
+        } else {
+          document.getElementById("result").innerHTML =
+            "Please enter valid numbers.";
+        }
+      }
+
+      function divide() {
+        let firstNumber = document.getElementById("1st").value;
+        let secondNumber = document.getElementById("2nd").value;
+
+        if (!isNaN(firstNumber) && !isNaN(secondNumber) && secondNumber !== 0) {
+          let divideResult = firstNumber / secondNumber;
+          document.getElementById("result").innerHTML =
+            "The result is: " + divideResult;
+        } else {
+          document.getElementById("result").innerHTML =
+            "Please enter valid numbers.";
+        }
+      }
+    </script>
+  </body>
+</html>
