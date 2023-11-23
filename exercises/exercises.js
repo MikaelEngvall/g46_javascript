@@ -14,6 +14,7 @@ let formattedDate2 = currentDate.toLocaleDateString('en-US', { year: 'numeric', 
 console.log(`${formattedDate1}, ${formattedDate2}`);
 console.log(" ");
 
+
 // Exercise 2
 logExercise("Exercise 2");
 function isLeapYear(year) {
